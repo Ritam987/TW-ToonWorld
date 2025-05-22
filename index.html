@@ -16,7 +16,9 @@
 </h1>
     <input type="text" id="search" placeholder="Search cartoons..." />
     <p id="no-results" style="text-align:center; display:none; color:red;">no results found</p>
-    <button id="darkmode">Dark Mode</button>
+    <button id="darkmode" aria-label="Toggle dark mode">
+      <span id="darkmode-icon">🌙</span>
+    </button>
   </header>
 
     
@@ -712,6 +714,35 @@
 
   <!-- Footer -->
   <footer>
+
+    <!-- Review Section in Footer -->
+
+  <section class="review-section">
+    <h2>Share Your Feedback</h2>
+    <form id="reviewForm">
+      <input type="text" id="reviewerName" placeholder="Your Name" required />
+      <select id="reviewRating" required>
+        <option value="">Rating</option>
+        <option value="5">★★★★★</option>
+        <option value="4">★★★★☆</option>
+        <option value="3">★★★☆☆</option>
+        <option value="2">★★☆☆☆</option>
+        <option value="1">★☆☆☆☆</option>
+      </select>
+      <textarea id="reviewComment" rows="2" placeholder="Your Comment" required></textarea>
+      <button type="submit">Submit Review</button>
+    </form>
+    <div class="review-marquee-wrapper">
+      <div class="review-marquee" id="reviewMarquee"></div>
+    </div>
+  </section>
+
+<!-- End Review Section -->
+
+    <br>
+    <br>
+    <br>
+    
     <p>&copy; 2025 ToonWorld | Built by Ritam</p>
   </footer>
 
