@@ -12,12 +12,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 300);
   }
 
-  // Initial state: light mode unless dark-mode class is present
-  setMode(document.body.classList.contains('dark-mode'));
+  // Check local storage or system preference
+  const savedTheme = localStorage.getItem('theme');
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+    setMode(true);
+  } else {
+    setMode(false);
+  }
 
   toggleBtn.addEventListener('click', () => {
     const isDark = !document.body.classList.contains('dark-mode');
     setMode(isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
 
   // Search feature with debouncing
