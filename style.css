@@ -1180,3 +1180,33 @@ body.dark-mode .review-card:hover {
   }
 }
 
+/* Scroll to Top/Bottom Button */
+#scroll-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px; /* Adjusted to be in the corner */
+  z-index: 999;
+  cursor: pointer;
+  opacity: 0.8;
+  transform: scale(0.9);
+  /* Reuse social-icon styles but override positioning */
+}
+
+#scroll-btn:hover {
+  opacity: 1;
+  transform: scale(1.1) translateY(-5px);
+}
+
+/* Ensure SVG is centered */
+#scroll-btn svg {
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  #scroll-btn {
+    bottom: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+  }
+}

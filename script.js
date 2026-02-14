@@ -286,4 +286,49 @@ document.addEventListener('DOMContentLoaded', () => {
     
     lastScroll = currentScroll;
   });
+
+  // Scroll to Top/Bottom Logic
+  const scrollBtn = document.getElementById('scroll-btn');
+  
+  if (scrollBtn) {
+    const upIcon = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M17 11l-5-5-5 5M17 18l-5-5-5 5"/>
+      </svg>`;
+    
+    const downIcon = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+      </svg>`;
+
+    // Update icon based on scroll position
+    window.addEventListener('scroll', () => {
+      // If at top (or very close), show down arrow
+      if (window.scrollY < 100) {
+        scrollBtn.innerHTML = downIcon;
+        scrollBtn.setAttribute('aria-label', 'Scroll to bottom');
+      } else {
+        // Otherwise show up arrow
+        scrollBtn.innerHTML = upIcon;
+        scrollBtn.setAttribute('aria-label', 'Scroll to top');
+      }
+    });
+
+    // Handle click
+    scrollBtn.addEventListener('click', () => {
+      if (window.scrollY < 100) {
+        // Scroll to Bottom
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: 'smooth'
+        });
+      } else {
+        // Scroll to Top
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+    });
+  }
 });
