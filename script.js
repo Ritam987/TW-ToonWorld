@@ -1,4 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Preloader Logic
+  const preloader = document.getElementById('preloader-overlay');
+  const orderButton = preloader.querySelector('.order');
+
+  if (preloader && orderButton) {
+    // Start animation immediately
+    document.body.style.overflow = 'hidden';
+    if (!orderButton.classList.contains('animate')) {
+      orderButton.classList.add('animate');
+    }
+
+    // Function to hide preloader
+    const hidePreloader = () => {
+      preloader.style.transition = 'opacity 0.5s ease';
+      preloader.style.opacity = '0';
+      setTimeout(() => {
+        preloader.style.display = 'none';
+        // Re-enable scrolling if you disabled it in CSS (not disabled currently but good practice)
+        document.body.style.overflow = 'auto'; 
+      }, 500); 
+    };
+
+    // Wait for the window to fully load
+    window.addEventListener('load', () => {
+       // Ensure animation runs for at least some time (e.g. 3s) so user sees it
+       // The truck animation is long (10s), but we probably don't want to force user to wait 10s if site loads fast.
+       // Let's set a reasonable timeout, e.g. 4 seconds to see the truck move a bit.
+       setTimeout(hidePreloader, 4000); 
+    });
+    
+    // Fallback in case load event doesn't fire or takes too long (e.g. 10s max)
+    setTimeout(hidePreloader, 10000);
+  }
+
   // Dark mode toggle with smooth animation
   const toggleBtn = document.getElementById('darkmode');
   const iconSpan = document.getElementById('darkmode-icon');
