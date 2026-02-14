@@ -7,6 +7,23 @@ Ei pure project ta kivabe kaj korche, tar **Logic, Algorithm, ar Architecture** 
 
 ---
 
+## ✨ Latest Features (New)
+Tomar request onujayi ei project-e **du’ti notun feature** add kora hoyeche:
+
+### 1. 🚛 Truck Preloading Animation
+- Website load howar age ekta **Truck Delivery Animation** cholbe.
+- Eta ensure kore je user-er kache content ready howar por-i website show hobe.
+- **Logic:** `window.addEventListener('load', ...)` event use kora hoyeche.
+
+### 2. ⬆️⬇️ Scroll to Top/Bottom Button
+- Bottom-Right corner-e ekta magic button add kora hoyeche.
+- **Dual Functionality:**
+    - Jodi tumi **Top**-e thako, button-ta **Down Arrow** dekhabe (Click korle Footer-e niye jabe).
+    - Jodi tumi **Scroll** kore niche namo, button-ta **Up Arrow** dekhabe (Click korle Header-e niye jabe).
+- **Style:** Premium glowing effect dewa hoyeche jate baki button-gulor sathe match kore.
+
+---
+
 ## 1. 🏗️ HTML Structure (The Skeleton) - `index.html`
 HTML file-ta hocche tomar website er skeleton ba kathamou.
 - **Header Section:** Ekta simple `header` ache jekhane `h1` tag diye Title ar Logo ache. Tar sathe ache ekta **Search Bar** (`input type="text"`) ar ekta **Dark Mode Button** (`button#darkmode`).
